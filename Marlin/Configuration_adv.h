@@ -33,6 +33,8 @@
 // This defines the number of extruders
 #ifdef REPRAPPRO_MULTIMATERIALS
 #define EXTRUDERS 3
+#elif EXPANSION_PORT_EXTRUDER
+#define EXTRUDERS 2
 #else
 #define EXTRUDERS 1
 #endif

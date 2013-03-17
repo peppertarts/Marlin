@@ -21,8 +21,9 @@
 //#define SERIAL_R 4700
 #define SERIAL_R 10000
 
-// Uncomment the next line if your machine has more than one extruder
-//#define REPRAPPRO_MULTIMATERIALS
+// Uncomment one of the next lines below if your machine has more than one extruder
+//#define REPRAPPRO_MULTIMATERIALS      // For use with a slave board
+#define EXPANSION_PORT_EXTRUDER       // For use with an extruder connected to the expansion port
 
 // -------------------------------------------------------------------------------
 
