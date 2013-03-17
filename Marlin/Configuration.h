@@ -8,8 +8,9 @@
 // Huxley: http://reprap.org/wiki/RepRapPro_Huxley_maintenance
 
 // Uncomment ONE of the next three lines - the one for your RepRap machine
+#define REPRAPPRO_HUXLEY_XMAS
 //#define REPRAPPRO_HUXLEY
-#define REPRAPPRO_MENDEL
+//#define REPRAPPRO_MENDEL
 //#define REPRAPPRO_WALLACE
 
 // Uncomment ONE of the next two lines - the one for your master controller electronics
@@ -17,8 +18,8 @@
 //#define REPRAPPRO_SANGUINOLOLU
 
 // Uncomment ONE of the next two lines - the one for the series resistors on your controller
-#define SERIAL_R 4700
-//#define SERIAL_R 10000
+//#define SERIAL_R 4700
+#define SERIAL_R 10000
 
 // Uncomment the next line if your machine has more than one extruder
 //#define REPRAPPRO_MULTIMATERIALS
@@ -28,7 +29,9 @@
 #ifndef REPRAPPRO_HUXLEY
 #ifndef REPRAPPRO_MENDEL
 #ifndef REPRAPPRO_WALLACE
-#error Uncomment one of #define REPRAPPRO_HUXLEY, REPRAPPRO_MENDEL or REPRAPPRO_WALLACE at the start of the file Configuration.h
+#ifndef REPRAPPRO_HUXLEY_XMAS
+#error Uncomment one of #define REPRAPPRO_HUXLEY, REPRAPPRO_HUXLEY_XMAS, REPRAPPRO_MENDEL or REPRAPPRO_WALLACE at the start of the file Configuration.h
+#endif
 #endif
 #endif
 #endif
@@ -56,8 +59,8 @@
 //User specified version info of THIS file to display in [Pronterface, etc] terminal window during startup.
 //Implementation of an idea by Prof Braino to inform user that any changes made
 //to THIS file by the user have been successfully uploaded into firmware.
-#define STRING_VERSION_CONFIG_H "2012-12-21-JMG" //Personal revision number for changes to THIS file.
-#define STRING_CONFIG_H_AUTHOR "RepRapPro" //Who made the changes.
+#define STRING_VERSION_CONFIG_H "2013-03-16" //Personal revision number for changes to THIS file.
+#define STRING_CONFIG_H_AUTHOR "Peter Strapp" //Who made the changes.
 
 // This determines the communication speed of the printer
 //#define BAUDRATE 250000
@@ -118,7 +121,7 @@
 #define BED_R_INF ( BED_NTC*exp(-BED_BETA/298.15) )
 #endif
 
-#ifdef REPRAPPRO_HUXLEY
+#if defined(REPRAPPRO_HUXLEY) || defined(REPRAPPRO_HUXLEY_XMAS)
 // VISHAY BC COMPONENTS - NTCS0603E3104FXT
 #define BED_BETA 4100.0
 #define BED_RS SERIAL_R
@@ -298,7 +301,9 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 
 //LCD and SD support
 //#define ULTRA_LCD  //general lcd support, also 16x2
-#define SDSUPPORT // Enable SD Card Support in Hardware Console
+#if !defined(REPRAPPRO_HUXLEY_XMAS) && !defined(REPRAPPRO_MELZI)
+  #define SDSUPPORT // Enable SD Card Support in Hardware Console
+#endif
 
 //#define ULTIPANEL
 #ifdef ULTIPANEL

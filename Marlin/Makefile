@@ -39,14 +39,14 @@
 #For Arduino Mega2560
 #MCU = atmega2560
 #For Sanguinololu
-#MCU = atmega644p 
-MCU = atmega1284p
+MCU = atmega644p 
+#MCU = atmega1284p
 #For Printrboard
 #MCU = at90usb1286 
 
 
 #Arduino install directory
-INSTALL_DIR = ../../arduino-0022/
+INSTALL_DIR = /home/peter/bin/arduino-0023
 
 # Be sure to regenerate speed_lookuptable.h with create_speed_lookuptable.py
 # if you are setting this to something other than 16MHz
@@ -54,7 +54,7 @@ F_CPU = 16000000
 
 UPLOAD_RATE = 115200
 AVRDUDE_PROGRAMMER = arduino
-PORT = /dev/arduino
+PORT = /dev/ttyUSB0
 
 TARGET = $(notdir $(CURDIR))
 
@@ -69,7 +69,7 @@ SRC =  $(ARDUINO)/pins_arduino.c $(ARDUINO)/wiring.c \
 	$(ARDUINO)/wiring_pulse.c \
 	$(ARDUINO)/wiring_shift.c $(ARDUINO)/WInterrupts.c
 CXXSRC = $(ARDUINO)/WMath.cpp $(ARDUINO)/WString.cpp\
-	$(ARDUINO)/Print.cpp applet/Marlin.cpp MarlinSerial.cpp Sd2Card.cpp SdBaseFile.cpp SdFatUtil.cpp SdFile.cpp SdVolume.cpp motion_control.cpp planner.cpp stepper.cpp temperature.cpp cardreader.cpp MatrixMath.cpp FPUTransform.cpp z_probe.cpp
+	$(ARDUINO)/Print.cpp applet/Marlin.cpp led.cpp MarlinSerial.cpp Sd2Card.cpp SdBaseFile.cpp SdFatUtil.cpp SdFile.cpp SdVolume.cpp motion_control.cpp planner.cpp stepper.cpp temperature.cpp cardreader.cpp MatrixMath.cpp FPUTransform.cpp z_probe.cpp
 	
 FORMAT = ihex
 
