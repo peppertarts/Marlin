@@ -69,10 +69,10 @@
 ****************************************************************************************/
 
 // Expansion Port
-// "A1"   Digital Pin 36    E1_STEP_PIN
-// "A2"   Digital Pin 35    E1_DIR_PIN
-// "A3"   Digital Pin 34    HEATER_1_PIN
-// "A4"   Digital Pin 33    TEMP_1_PIN
+// "A1"   Digital Pin 30    HEATER_1_PIN
+// "A2"   Digital Pin 29    TEMP_1_PIN
+// "A3"   Digital Pin 28    E1_STEP_PIN
+// "A4"   Digital Pin 27    E1_DIR_PIN
 
 #if MOTHERBOARD == 63
 #define KNOWN_BOARD 1
@@ -100,8 +100,8 @@
 #define E0_STEP_PIN         1
 #define E0_DIR_PIN          0
 
-//#define E1_STEP_PIN         36
-//#define E1_DIR_PIN          35
+#define E1_STEP_PIN         28
+#define E1_DIR_PIN          27
 
 #define PROBE_PIN          -1    //29 on Melzi1284p A2
 
@@ -113,7 +113,7 @@
 #define KILL_PIN           -1
 
 #define HEATER_0_PIN       13 // (extruder 1)
-#define HEATER_1_PIN       -1 //34 // (extruder 2)
+#define HEATER_1_PIN       30 // (extruder 2)
 #define HEATER_2_PIN       -1
 #ifdef REPRAPPRO_HUXLEY
     #define HEATER_BED_PIN     10 // bed (change to 10 for gate pin of MOSFET on heated bed)
@@ -124,9 +124,10 @@
 #define Y_ENABLE_PIN       14
 #define Z_ENABLE_PIN       26
 #define E0_ENABLE_PIN      14
+#define E1_ENABLE_PIN      14
 
 #define TEMP_0_PIN          7   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!! (pin 33 extruder)
-#define TEMP_1_PIN          4
+#define TEMP_1_PIN          2
 #define TEMP_2_PIN         -1
 #define TEMP_BED_PIN        6   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!! (pin 34 bed)
 #define SDPOWER            -1

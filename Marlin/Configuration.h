@@ -51,7 +51,7 @@
 
 // Uncomment this if you are experimenting, know what you are doing, and want to switch off some safety
 // features, e.g. allow extrude at low temperature etc.
-//#define DEVELOPING
+#define DEVELOPING
 
 // This configurtion file contains the basic settings.
 // Advanced settings can be found in Configuration_adv.h 
@@ -151,6 +151,9 @@
 #define HEATER_1_MINTEMP 1
 #define HEATER_2_MINTEMP 1
 #endif
+#ifdef EXPANSION_PORT_EXTRUDER
+#define HEATER_1_MINTEMP 1
+#endif
 #define BED_MINTEMP 1
 
 // When temperature exceeds max temp, your heater will be switched off.
@@ -160,6 +163,9 @@
 #ifdef REPRAPPRO_MULTIMATERIALS
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
+#endif
+#ifdef EXPANSION_PORT_EXTRUDER
+#define HEATER_1_MAXTEMP 275
 #endif
 #define BED_MAXTEMP 150
 
