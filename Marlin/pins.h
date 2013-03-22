@@ -72,7 +72,7 @@
 // "A1"   Digital Pin 30    HEATER_1_PIN
 // "A2"   Digital Pin 29    TEMP_1_PIN
 // "A3"   Digital Pin 28    E1_STEP_PIN
-// "A4"   Digital Pin 27    E1_DIR_PIN
+// "A4"   Digital Pin 27    E1_DIR_PIN          LED Pin
 
 #if MOTHERBOARD == 63
 #define KNOWN_BOARD 1
@@ -105,7 +105,11 @@
 
 #define PROBE_PIN          -1    //29 on Melzi1284p A2
 
-#define LED_PIN            27
+#ifdef EXPANSION_PORT_EXTRUDER
+  #define LED_PIN          -1
+#else
+  #define LED_PIN          27
+#endif
 
 #define FAN_PIN            4 
 
